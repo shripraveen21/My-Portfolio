@@ -1,0 +1,592 @@
+// File: components/Avatar.js
+const Avatar = () => {
+  return <div>Avatar</div>;
+};
+
+export default Avatar;
+
+// File: components/Bulb.js
+const Bulb = () => {
+  return <div>Bulb</div>;
+};
+
+export default Bulb;
+
+// File: components/CardLeft.js
+const CardLeft = () => {
+  return <div>Card Left</div>;
+};
+
+export default CardLeft;
+
+// File: components/CardRight.js
+const CardRight = () => {
+  return <div>Card Right</div>;
+};
+
+export default CardRight;
+
+// File: components/Circles.js
+const Circles = () => {
+  return <div>Circles</div>;
+};
+
+export default Circles;
+
+// File: components/Header.js
+const Header = () => {
+  return <header>Header</header>;
+};
+
+export default Header;
+
+// File: components/Layout.js
+import { Sora } from '@next/font/google'
+
+
+//font settings
+const sora = Sora({
+  subsets:['latin'],
+  variable:'--font-sora',
+  weight: ['100','200','300','400','500','600','700','800'],
+})
+
+
+
+
+
+
+
+
+
+// components
+import Nav from '../components/Nav';
+import Header from '../components/Header';
+import TopLeftImg from '../components/TopLeftImg';
+
+const Layout = ({ children }) => {
+  return (
+    <div className={'page bg-site text-white bg-cover bg-no-repeat ${sora.variable font-sora relative'}>
+      <TopLeftImg />
+      <Nav />
+      <Header />
+      {children}
+    </div>
+  );
+};
+
+export default Layout;
+// File: components/Nav.js
+// icons
+import {
+  HiHome,
+  HiUser,
+  HiViewColumns,
+  HiRectangleGroup,
+  HiChatBubbleBottomCenterText,
+  HiEnvelope,
+} from 'react-icons/hi2';
+
+// nav data
+export const navData = [
+  { name: 'home', path: '/', icon: <HiHome /> },
+  { name: 'about', path: '/about', icon: <HiUser /> },
+  { name: 'services', path: '/services', icon: <HiRectangleGroup /> },
+  { name: 'work', path: '/work', icon: <HiViewColumns /> },
+  {
+    name: 'testimonials',
+    path: '/testimonials',
+    icon: <HiChatBubbleBottomCenterText />,
+  },
+  {
+    name: 'contact',
+    path: '/contact',
+    icon: <HiEnvelope />,
+  },
+];
+
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+const Nav = () => {
+  const router = useRouter();
+  const pathname = router.pathname;
+  return (
+    <nav className='flex flex-col items-center xl:justify-center gap-y-4 fixed h-max
+    bottom-0 mt-auto xl:right-[2%] z-50 top-8 w-full xl:w-16 xl:max-w-md xl:h-screen'>
+      {/* inner */}
+      <div className='flex w-full xl:flex-col items-center justify-between 
+      xl:justify-center gap-y-10 px-4  md:px-40 xl:px-0 h-[80px] 
+      xl:h-max py-8 bg-white/10 backdrop-blue-sm text-3xl 
+      xl:text-xl xl:rounded-full '>
+        {navData.map((link, index) => {
+          return (
+            <Link
+              className={`${link.path === pathname ? 'text-accent' : ''
+                } relative flex items-center group duration-300 hover:text-accent transition-all`}
+              href={link.path}
+              key={index}
+            >
+              {/* tooltip */}
+              <div className='absolute pr-14 right-0 hidden xl:group-hover:flex'>
+                <div className='bg-white relative flex text-primary items-center p-[6px] rounded-[3px]'>
+                  <div className='text-[12px] leading-none font-semibold capitalize'>
+                    {link.name}
+                  </div>
+                  {/* triangle */}
+                  <div className='border-solid border-l-white border-l-0  border-y-transparent border-y-[6px] border-r-8 absolute -right-2'></div>
+                </div>
+              </div>
+              {/* icon */}
+              <div>{link.icon}</div>
+            </Link>);
+        })}
+      </div>
+    </nav>
+  );
+};
+export default Nav;
+
+// File: components/ParticlesContainer.js
+const ParticlesContainer = () => {
+  return <div>Particles Container</div>;
+};
+
+export default ParticlesContainer;
+
+// File: components/ProjectsBtn.js
+const ProjectsBtn = () => {
+  return <div>Project Btn</div>;
+};
+
+export default ProjectsBtn;
+
+// File: components/ServiceSlider.js
+// icons
+import {
+  RxCrop,
+  RxPencil2,
+  RxDesktop,
+  RxReader,
+  RxRocket,
+} from "react-icons/rx";
+
+
+// data
+const serviceData = [
+  {
+    icon: <RxCrop />,
+    title: 'Branding',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
+  {
+    icon: <RxPencil2 />,
+    title: 'Design',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
+  {
+    icon: <RxDesktop />,
+    title: 'Development',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
+  {
+    icon: <RxReader />,
+    title: 'Copywriting',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
+  {
+    icon: <RxRocket />,
+    title: 'SEO',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
+];
+
+const ServiceSlider = () => {
+  return <div>Service Slider</div>;
+};
+
+export default ServiceSlider;
+
+// File: components/Socials.js
+const Socials = () => {
+  return <div>Socials</div>;
+};
+
+export default Socials;
+
+// File: components/TestimonialSlider.js
+// testimonial data
+const testimonialData = [
+  {
+    image: '/t-avt-1.png',
+    name: 'Anne Smith',
+    position: 'Customer',
+    message:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
+  },
+  {
+    image: '/t-avt-2.png',
+    name: 'Jane Doe',
+    position: 'Customer',
+    message:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
+  },
+  {
+    image: '/t-avt-3.png',
+    name: 'Jhon Doe',
+    position: 'Customer',
+    message:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
+  },
+];
+
+const TestimonialSlider = () => {
+  return <div>Testimonial Slider</div>;
+};
+
+export default TestimonialSlider;
+
+// File: components/TopLeftImg.js
+// next image
+import Image from 'next/image';
+
+const TopLeftImg = () => {
+  return (
+    <div className='absolute left-0 top-0 mix-blend-color-dodge z-10 w-[200px] xl:w-[400px] opacity-50'>
+      <Image src='/top-left-img.png' width={400} height={400} alt='' />
+    </div>
+  );
+};
+
+export default TopLeftImg;
+// File: components/Transition.js
+import { motion } from 'framer-motion';
+
+
+// variants
+const transitionVariants = {
+  initial: {
+    x: '100%',
+    width: '100%',
+  },
+  animate: {
+    x: '0%',
+    width: '0%',
+  },
+  exit: {
+    x: ['0%', '100%'],
+    width: ['0%', '100%'],
+  },
+};
+
+const Transition = () => {
+  return (
+    <>
+      <motion.div
+        className='fixed top-0 bottom-0 right-full w-screen h-screen z-30 bg-[#2e2257]'
+        variants={transitionVariants}
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        transition={{ delay: 0.2, duration: 0.3, ease: 'easeInOut' }}
+        ></motion.div >
+      <motion.div
+        className='fixed top-0 bottom-0 right-full w-screen h-screen z-20 bg-[#3b2d71]'
+        variants={transitionVariants}
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        transition={{ delay: 0.4, duration: 0.3, ease: 'easeInOut' }}
+        ></motion.div >
+        <motion.div
+        className='fixed top-0 bottom-0 right-full w-screen h-screen z-10 bg-[#4b3792]'
+        variants={transitionVariants}
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        transition={{ delay: 0.6, duration: 0.3, ease: 'easeInOut' }}
+        >
+      1
+     </motion.div >
+    </>
+  );
+};
+
+export default Transition;
+
+// File: components/WorkSlider.js
+// data
+const workSlides = {
+  slides: [
+    {
+      images: [
+        {
+          title: 'title',
+          path: '/thumb1.jpg',
+        },
+        {
+          title: 'title',
+          path: '/thumb2.jpg',
+        },
+        {
+          title: 'title',
+          path: '/thumb3.jpg',
+        },
+        {
+          title: 'title',
+          path: '/thumb4.jpg',
+        },
+      ],
+    },
+    {
+      images: [
+        {
+          title: 'title',
+          path: '/thumb4.jpg',
+        },
+        {
+          title: 'title',
+          path: '/thumb1.jpg',
+        },
+        {
+          title: 'title',
+          path: '/thumb2.jpg',
+        },
+        {
+          title: 'title',
+          path: '/thumb3.jpg',
+        },
+      ],
+    },
+  ],
+};
+
+const WorkSlider = () => {
+  return <div>Work Slider</div>;
+};
+
+export default WorkSlider;
+
+// File: pages/_app.js
+import '../styles/globals.css';
+
+
+// components
+import Layout from '../components/Layout';
+import Transition from '../components/Transition';
+
+
+// router
+import { useRouter } from 'next/router';
+
+// framer motion
+import { AnimatePresence, motion } from 'framer-motion';
+
+
+function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  return (
+    <Layout>
+      <AnimatePresence mode='wait'>
+        <motion.div key={router.route} className='h-full'>
+          <Transition />
+          <Component {...pageProps} />
+        </motion.div>
+      </AnimatePresence>
+    </Layout>
+  );
+}
+export default MyApp;
+
+// File: pages/about/index.js
+// icons
+import {
+  FaHtml5,
+  FaCss3,
+  FaJs,
+  FaReact,
+  FaWordpress,
+  FaFigma,
+} from "react-icons/fa";
+
+import {
+  SiNextdotjs,
+  SiFramer,
+  SiAdobexd,
+  SiAdobephotoshop,
+} from "react-icons/si";
+
+
+//  data
+const aboutData = [
+  {
+    title: 'skills',
+    info: [
+      {
+        title: 'Web Development',
+        icons: [
+          <FaHtml5 />,
+          <FaCss3 />,
+          <FaJs />,
+          <FaReact />,
+          <SiNextdotjs />,
+          <SiFramer />,
+          <FaWordpress />,
+        ],
+      },
+      {
+        title: 'UI/UX Design',
+        icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+      },
+    ],
+  },
+  {
+    title: 'awards',
+    info: [
+      {
+        title: 'Webby Awards - Honoree',
+        stage: '2011 - 2012',
+      },
+      {
+        title: 'Adobe Design Achievement Awards - Finalist',
+        stage: '2009 - 2010',
+      },
+    ],
+  },
+  {
+    title: 'experience',
+    info: [
+      {
+        title: 'UX/UI Designer - XYZ Company',
+        stage: '2012 - 2023',
+      },
+      {
+        title: 'Web Developer - ABC Agency',
+        stage: '2010 - 2012',
+      },
+      {
+        title: 'Intern - DEF Corporation',
+        stage: '2008 - 2010',
+      },
+    ],
+  },
+  {
+    title: 'credentials',
+    info: [
+      {
+        title: 'Web Development - ABC University, LA, CA',
+        stage: '2011',
+      },
+      {
+        title: 'Computer Science Diploma - AV Technical Institute',
+        stage: '2009',
+      },
+      {
+        title: 'Certified Graphic Designer - ABC Institute, Los Angeles, CA',
+        stage: '2006',
+      },
+    ],
+  },
+];
+
+const About = () => {
+  return <div>About</div>;
+};
+
+export default About;
+
+// File: pages/api/hello.js
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
+export default function handler(req, res) {
+  res.status(200).json({ name: 'John Doe' })
+}
+
+// File: pages/contact/index.js
+const Contact = () => {
+  return <div>Contact</div>;
+};
+
+export default Contact;
+
+// File: pages/index.js
+const Home = () => {
+  return <div>Home</div>;
+};
+
+export default Home;
+
+// File: pages/services/index.js
+const Services = () => {
+  return <div>Services</div>;
+};
+
+export default Services;
+
+// File: pages/testimonials/index.js
+const Testimonials = () => {
+  return <div>Testimonials</div>;
+};
+
+export default Testimonials;
+
+// File: pages/work/index.js
+const Work = () => {
+  return <div>Work</div>;
+};
+
+export default Work;
+
+// File: styles/globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.translate-z-0 {
+  transform: translateZ(0px);
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  background-color: #f13024;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after,
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  color: #f13024;
+}
+
+@layer base {
+  body {
+    @apply bg-secondary overflow-hidden leading-relaxed;
+  }
+  .page {
+    @apply w-full h-screen overflow-hidden;
+  }
+  .h1 {
+    @apply text-[35px] leading-tight md:text-[60px] md:leading-[1.3] mb-8 font-semibold;
+  }
+  .h2 {
+    @apply text-[35px] leading-tight md:text-[54px] md:leading-[1.3] mb-4 font-semibold;
+  }
+  p {
+    @apply leading-[1.8] text-white/60 font-light;
+  }
+  .btn,
+  .input {
+    @apply h-[52px];
+  }
+  .input {
+    @apply w-full h-[52px] rounded-lg pl-6 capitalize;
+  }
+  .input,
+  .textarea {
+    @apply bg-transparent outline-none focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/30 placeholder:font-light;
+  }
+  .textarea {
+    @apply w-full h-[180px] p-6 capitalize rounded-lg resize-none;
+  }
+}
+
