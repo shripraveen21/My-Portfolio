@@ -44,7 +44,6 @@ const Transition = () => {
         exit='exit'
         transition={{ delay: 0.6, duration: 0.3, ease: 'easeInOut' }}
         >
-      1
      </motion.div >
     </>
   );
