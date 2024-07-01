@@ -18,48 +18,7 @@ import { SiNextdotjs, SiFramer, SiAdobexd, SiAdobephotoshop, SiTensorflow, SiBlo
 import { DiDatabase } from 'react-icons/di';
 
 const aboutData = [
-  {
-    title: 'skills',
-    info: [
-      {
-        title: 'Data Structures and Algorithms',
-        icons: [
-          <DiDatabase />, // Database icon representing structured data
-        ],
-      },
-      {
-        title: 'Web Development',
-        icons: [
-          <FaHtml5 />,
-          <FaCss3 />,
-          <FaJs />,
-          <FaReact />,
-          <SiNextdotjs />,
-          <SiFramer />,
-        ],
-      },
-      {
-        title: 'Machine Learning',
-        icons: [
-          <SiTensorflow />, // TensorFlow icon representing machine learning
-        ],
-      },
-      {
-        title: 'Blockchain',
-        icons: [
-          <SiBlockchaindotcom />, // Blockchain icon
-        ],
-      },
-      {
-        title: 'UI/UX Design',
-        icons: [
-          <FaFigma />,
-          <SiAdobexd />,
-          <SiAdobephotoshop />,
-        ],
-      },
-    ],
-  },
+ 
   {
     title: 'awards',
     info: [
