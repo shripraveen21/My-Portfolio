@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { fadeIn } from '../../variants';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 const Work = () => {
   const projects = [
     {
@@ -106,10 +109,10 @@ const Work = () => {
                   className={`flex-1 ${index % 2 === 0 ? 'ml-[-10px]' : 'mr-[-10px]'} relative z-10`}
                 >
                   {/* ... (image content remains the same) */}
-                <div className="overflow-hidden rounded-xl shadow-lg relative h-[500px] w-[700px]">
-                  <img src={project.image} alt={project.title} className="object-cover w-full h-full transition-transform duration-300 hover:scale-110" />
-                  <div className="absolute inset-0 bg-[rgba(90,36,237,0.22)]"></div>
-                </div>
+                  <div className="overflow-hidden rounded-xl shadow-lg relative h-[500px] w-[700px]">
+                    <img src={project.image} alt={project.title} className="object-cover w-full h-full transition-transform duration-300 hover:scale-110" />
+                    <div className="absolute inset-0 bg-[rgba(90,36,237,0.22)]"></div>
+                  </div>
                 </motion.div>
                 <motion.div
                   variants={fadeIn("right", 0.4)}
@@ -121,7 +124,7 @@ const Work = () => {
                     variants={fadeIn("right", 0.4)}
                     initial="hidden"
                     animate={isInView ? "show" : "hidden"}
-                    className="text-3xl font-montserrat mb-4 text-white underline"
+                    className="flex justify-center text-3xl font-montserrat mb-4 text-white underline"
                   >
                     {project.title}
                   </motion.h2>
@@ -129,30 +132,32 @@ const Work = () => {
                     variants={fadeIn("up", 0.4)}
                     initial="hidden"
                     animate={isInView ? "show" : "hidden"}
-                    className="text-xl mb-20 text-black"
+                    className="text-xl mb-20 text-black flex justify-center"
                   >
                     {project.description}
                   </motion.h3>
                   {/* ... (rest of the content remains the same) */}
-                <motion.div
-                  variants={fadeIn("down", 0.4)}
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  className="flex flex-row gap-8 ">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="bg-primary text-white text-xl px-6 py-2.5 rounded-full inline-block">Know More</a>
-
-                </motion.div>
-                </motion.div>
+                  <motion.div
+                    variants={fadeIn("down", 0.4)}
+                    initial="hidden"
+                    animate="show"
+                    exit="hidden"
+                    className="flex flex-row gap-8 text-xl justify-center" // Added items-center to align items in a row
+                  >
+                     <a href={project.link} target="_blank" rel="noopener noreferrer">
+    <FontAwesomeIcon icon={faGithub} className='inline-flex w-8 h-8'/>
+    <span style={{ marginLeft: '0.5rem' }}>Visit GitHub</span>
+  </a> 
+                  </motion.div>
+              </motion.div>
               </div>
-            );
+        );
           })}
-        </div>
       </div>
-    </section>
+    </div>
+    </section >
   );
 };
 
 
 export default Work;
-
