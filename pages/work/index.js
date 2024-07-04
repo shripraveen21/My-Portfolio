@@ -87,7 +87,7 @@ const work = () => {
 
             return (
               <motion.div 
-              variants={fadeIn("left", 0.3)}
+              variants={fadeIn("left", 0.1)}
               initial="hidden"
               animate={isInView ? "show" : "hidden"}
               key={index} ref={ref} className="bg-white/10 rounded-lg overflow-hidden shadow-lg">
