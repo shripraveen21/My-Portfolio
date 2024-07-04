@@ -18,7 +18,7 @@ const Socials = () => {
   };
 
   return (
-    <div className="social-icons flex flex-row items-center gap-x-4 text-lg">
+    <div className="social-icons flex flex-row items-center gap-x-5 text-sm">
       <Link href="https://github.com/shripraveen21" legacyBehavior>
         <a target="_blank" className="hover:text-accent transition-all duration-300" rel="noopener noreferrer" title="GitHub">
           <FaGithub size={30} />

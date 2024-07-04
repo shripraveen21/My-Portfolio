@@ -20,15 +20,6 @@ import { DiDatabase } from 'react-icons/di';
 const aboutData = [
  
   {
-    title: 'awards',
-    info: [
-      {
-        title: 'Code-father Contest Winner',
-        stage: '2023 - Anokha, Amrita Vishwa Vidyapeetham',
-      },
-    ],
-  },
-  {
     title: 'credentials',
     info: [
       {
@@ -42,6 +33,15 @@ const aboutData = [
       {
         title: 'School',
         stage: 'Sri Gurukulam Higher Secondary School, Hosur (4th Std - 10th Std) - Percentage: 71',
+      },
+    ],
+  },
+  {
+    title: 'awards',
+    info: [
+      {
+        title: 'Code-father Contest Winner',
+        stage: '2023 - Anokha, Amrita Vishwa Vidyapeetham',
       },
     ],
   },
