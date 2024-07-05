@@ -1,19 +1,11 @@
-// next image
 import Image from 'next/image';
 import Typed from 'react-typed';
-// components
 import ParticlesContainer from '../components/ParticlesContainer';
 import ProjectsBtn from '../components/ProjectsBtn';
 import Avatar from '../components/Avatar';
-
-// framer motion
 import { motion } from 'framer-motion';
-
-// variants
 import { fadeIn } from '../variants';
-
 import React, { useState, useEffect } from 'react';
-
 
 const skills = ['Web Developer', 'Blockchain', 'Machine Learning'];
 
@@ -62,7 +54,7 @@ const Home = () => {
             exit='hidden'
             className='h1 sm:h4'
           >
-            <span className='text-accent'>Hello,</span> I'm Shri Praveen S M<br />
+            <span className='text-accent'>Hello,</span> I&apos;m Shri Praveen S M<br />
             Specializing in <span className='text-accent'>{displayedSkill}</span> 
           </motion.h1>
           {/* subtitle */}
@@ -120,13 +112,11 @@ const Home = () => {
           animate='show'
           exit='hidden'
           transition={{ duration: 1, ease: 'easeInOut' }}
-          className='w-full h-full max-w-[737px] max-h-[678px] absolute -bottom-32
-        lg:bottom-0 lg:right-[8%]'>
+          className='w-full h-full max-w-[737px] max-h-[678px] absolute -bottom-32 lg:bottom-0 lg:right-[8%]'>
           <Avatar />
         </motion.div>
       </div>
     </div>
-
   );
 };
 

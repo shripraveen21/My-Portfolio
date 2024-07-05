@@ -121,14 +121,14 @@ const Contact = () => {
     <div className='min-h-screen bg-primary/30 xl:pt-52'>
       <div className='container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full'>
         <div className='flex flex-col w-full max-w-[700px] '>
-          <motion.h2
-            variants={fadeIn('up', 0.4)}
-            initial='hidden'
-            animate='show'
-            exit='hidden'
-            className='h2 text-center mb-12'>
-            Let's <span className='text-accent'>connect.</span>
-          </motion.h2>
+        <motion.h2
+  variants={fadeIn('up', 0.4)}
+  initial='hidden'
+  animate='show'
+  exit='hidden'
+  className='h2 text-center mb-12'>
+  Let&apos;s <span className='text-accent'>connect.</span>
+</motion.h2>
           <motion.form
             variants={fadeIn('right', 0.6)}
             initial='hidden'
@@ -143,11 +143,11 @@ const Contact = () => {
             <input type='text' placeholder='Subject' name='subject' className='input' value={formData.subject} onChange={handleChange} />
             <textarea placeholder='Message' name='message' className='textarea' value={formData.message} onChange={handleChange}></textarea>
             <button type='submit' className='btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group'>
-              <span className='group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500'>
-                Let's talk
-              </span>
-              <BsArrowRight className='-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]' />
-            </button>
+  <span className='group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500'>
+    Let&apos;s talk
+  </span>
+  <BsArrowRight className='-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]' />
+</button>
           </motion.form>
         </div>
       </div>

@@ -7,6 +7,103 @@ import dynamic from 'next/dynamic';
 
 const Image = dynamic(() => import('next/image'), { ssr: false });
 
+const ProjectItem = ({ project, index, isMobile }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  if (isMobile) {
+    return (
+      <motion.div 
+        variants={fadeIn("left", 0.1)}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+        ref={ref} 
+        className="bg-white/10 rounded-lg overflow-hidden shadow-lg"
+      >
+        <Image 
+          src={project.image} 
+          alt={project.title} 
+          className="w-full h-64 object-cover" 
+          width={500}
+          height={256}
+        />
+        <motion.div 
+          variants={fadeIn("left", 0.6)}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          className="p-6"
+        >
+          <h2 className="text-xl md:text-2xl font-bold mb-2">{project.title}</h2>
+          <p className="text-sm md:text-base text-white mb-4">{project.description}</p>
+          <div className="flex justify-center">
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faGithub} className='inline-flex w-8 h-8' />
+              <span style={{ marginLeft: '0.5rem' }}>Visit GitHub</span>
+            </a>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  }
+
+  return (
+    <div ref={ref} className={`flex ${index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'} items-center justify-center mx-auto xl:mt-32 h-[400px] w-[1100px]`}>
+      <motion.div
+        variants={fadeIn("left", 0.2)}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+        className={`flex-1 ${index % 2 === 0 ? 'ml-[-10px]' : 'mr-[-10px]'} relative z-10`}
+      >
+        <div className="overflow-hidden rounded-xl shadow-lg relative h-[500px] w-[700px]">
+          <Image 
+            src={project.image} 
+            alt={project.title} 
+            className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
+            width={700}
+            height={500}
+          />
+          <div className="absolute inset-0 bg-[rgba(90,36,237,0.22)]"></div>
+        </div>
+      </motion.div>
+      <motion.div
+        variants={fadeIn("right", 0.3)}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+        className="flex-1 h-[400px] w-[500px] p-12 rounded-xl shadow-md z-0 bg-white border border-opacity-20 border-black"
+      >
+        <motion.h2
+          variants={fadeIn("right", 0.3)}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          className="flex justify-center text-3xl font-montserrat mb-4 text-black underline"
+        >
+          {project.title}
+        </motion.h2>
+        <motion.h3
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          className="text-xl mb-20 text-black flex justify-center"
+        >
+          {project.description}
+        </motion.h3>
+        <motion.div
+          variants={fadeIn("down", 0.3)}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          className="flex flex-row gap-8 text-xl justify-center text-black"
+        >
+          <a href={project.link} target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faGithub} className='inline-flex w-8 h-8' />
+            <span style={{ marginLeft: '0.5rem' }}>Visit GitHub</span>
+          </a>
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+};
+
 const Work = () => {
   const projects = [
     {
@@ -83,107 +180,14 @@ const Work = () => {
           <span className='text-accent'>My</span> Pr<span className='text-accent'>oje</span>cts
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-72 md:hidden">
-          {projects.map((project, index) => {
-            const ref = useRef(null);
-            const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-            return (
-              <motion.div 
-                variants={fadeIn("left", 0.1)}
-                initial="hidden"
-                animate={isInView ? "show" : "hidden"}
-                key={index} 
-                ref={ref} 
-                className="bg-white/10 rounded-lg overflow-hidden shadow-lg"
-              >
-                <Image 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-64 object-cover" 
-                  width={500}
-                  height={256}
-                />
-                <motion.div 
-                  variants={fadeIn("left", 0.6)}
-                  initial="hidden"
-                  animate={isInView ? "show" : "hidden"}
-                  className="p-6"
-                >
-                  <h2 className="text-xl md:text-2xl font-bold mb-2">{project.title}</h2>
-                  <p className="text-sm md:text-base text-white mb-4">{project.description}</p>
-                  <div className="flex justify-center">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <FontAwesomeIcon icon={faGithub} className='inline-flex w-8 h-8' />
-                      <span style={{ marginLeft: '0.5rem' }}>Visit GitHub</span>
-                    </a>
-                  </div>
-                </motion.div>
-              </motion.div>
-            );
-          })}
+          {projects.map((project, index) => (
+            <ProjectItem key={index} project={project} index={index} isMobile={true} />
+          ))}
         </div>
         <div className="hidden md:block space-y-80">
-          {projects.map((project, index) => {
-            const ref = useRef(null);
-            const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-            return (
-              <div key={index} ref={ref} className={`flex ${index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'} items-center justify-center mx-auto xl:mt-32 h-[400px] w-[1100px]`}>
-                <motion.div
-                  variants={fadeIn("left", 0.2)}
-                  initial="hidden"
-                  animate={isInView ? "show" : "hidden"}
-                  className={`flex-1 ${index % 2 === 0 ? 'ml-[-10px]' : 'mr-[-10px]'} relative z-10`}
-                >
-                  <div className="overflow-hidden rounded-xl shadow-lg relative h-[500px] w-[700px]">
-                    <Image 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
-                      width={700}
-                      height={500}
-                    />
-                    <div className="absolute inset-0 bg-[rgba(90,36,237,0.22)]"></div>
-                  </div>
-                </motion.div>
-                <motion.div
-                  variants={fadeIn("right", 0.3)}
-                  initial="hidden"
-                  animate={isInView ? "show" : "hidden"}
-                  className="flex-1 h-[400px] w-[500px] p-12 rounded-xl shadow-md z-0 bg-white border border-opacity-20 border-black"
-                >
-                  <motion.h2
-                    variants={fadeIn("right", 0.3)}
-                    initial="hidden"
-                    animate={isInView ? "show" : "hidden"}
-                    className="flex justify-center text-3xl font-montserrat mb-4 text-black underline"
-                  >
-                    {project.title}
-                  </motion.h2>
-                  <motion.h3
-                    variants={fadeIn("up", 0.3)}
-                    initial="hidden"
-                    animate={isInView ? "show" : "hidden"}
-                    className="text-xl mb-20 text-black flex justify-center"
-                  >
-                    {project.description}
-                  </motion.h3>
-                  <motion.div
-                    variants={fadeIn("down", 0.3)}
-                    initial="hidden"
-                    animate="show"
-                    exit="hidden"
-                    className="flex flex-row gap-8 text-xl justify-center text-black"
-                  >
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <FontAwesomeIcon icon={faGithub} className='inline-flex w-8 h-8' />
-                      <span style={{ marginLeft: '0.5rem' }}>Visit GitHub</span>
-                    </a>
-                  </motion.div>
-                </motion.div>
-              </div>
-            );
-          })}
+          {projects.map((project, index) => (
+            <ProjectItem key={index} project={project} index={index} isMobile={false} />
+          ))}
         </div>
       </div>
     </section>

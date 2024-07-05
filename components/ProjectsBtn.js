@@ -1,68 +1,11 @@
-// // import Image from 'next/image';
-// // import Link from 'next/link';
-// // import { HiArrowRight } from 'react-icons/hi2';
-
-// // const ProjectsBtn = () => {
-// //   return (
-// //     <div className='mx-auto xl:mx-0 z-50 '>
-// //       <Link 
-// //         href={'/work'} 
-// //         className='relative w-[185px] h-[185px] sm:w-[85px] sm:h-[85px] flex justify-center items-center bg-circleStar bg-cover bg-center bg-no-repeat group'
-// //       >
-// //         <Image
-// //           src={'/rounded-text.png'}
-// //           width={141}
-// //           height={148}
-// //           alt='Projects'
-// //           className='animate-spin-slow w-full h-full max-w-[141px] max-h-[148px]'
-// //         />
-// //         <HiArrowRight className='absolute text-4xl group-hover:translate-x-2 transition-all duration-300' />
-// //         {/* Add an invisible overlay to increase clickable area */}
-// //         <div className='absolute inset-0' />
-// //       </Link>
-// //     </div>
-// //   );
-// // };
-
-// // export default ProjectsBtn;
-// import Image from 'next/image';
-// import Link from 'next/link';
-// import { HiArrowRight } from 'react-icons/hi';
-
-// const ProjectsBtn = () => {
-//   return (
-//     <div className='mx-auto xl:mx-0 z-50'>
-//       <a href='/work' passHref>
-//         <a className='relative w-[185px] h-[185px]  flex justify-center items-center bg-circleStar bg-cover bg-center bg-no-repeat group'>
-//           <div className='flex items-center justify-center'>
-//             <Image
-//               src='/rounded-text.png'
-//               width={141}
-//               height={148}
-//               alt='Projects'
-//               className='animate-spin-slow w-full h-full max-w-[141px] max-h-[148px]'
-//             />
-//           </div>
-//           <HiArrowRight className='absolute text-4xl group-hover:translate-x-2 transition-all duration-300' />
-//           {/* Add an invisible overlay to increase clickable area */}
-//           <div className='absolute inset-0 flex items-center justify-center'>
-//             <span className='sr-only'>View Projects</span>
-//           </div>
-//         </a>
-//       </a>
-//     </div>
-//   );
-// };
-
-// export default ProjectsBtn;
-
 import Image from 'next/image';
+import Link from 'next/link';
 import { HiArrowRight } from 'react-icons/hi';
 
 const ProjectsBtn = () => {
   return (
     <div className='mx-auto xl:mx-0 z-50'>
-      <a 
+      <Link 
         href='/work' 
         className='relative w-[100px] h-[100px] sm:w-[140px] sm:h-[140px] xl:w-[185px] xl:h-[185px] flex justify-center items-center bg-circleStar bg-cover bg-center bg-no-repeat group' 
         aria-label='View Projects'
@@ -81,7 +24,7 @@ const ProjectsBtn = () => {
         <div className='absolute inset-0 flex items-center justify-center'>
           <span className='sr-only'>View Projects</span>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
