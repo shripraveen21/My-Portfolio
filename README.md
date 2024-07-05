@@ -111,9 +111,6 @@ This project is a portfolio starter template for Ethan, showcasing various proje
 5. **Project Details**
    ![Project Details](screenshot5.png)
 
-## Contributing
-
-We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests.
 
 ## License
 
@@ -121,7 +118,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Feel free to reach out for any questions or support regarding this project. Happy coding!
-```
-
-You can add the actual file paths for the screenshots and the contributing guide if they exist. Let me know if you need any modifications or additional sections in the README file!

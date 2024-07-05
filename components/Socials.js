@@ -66,14 +66,31 @@ import { SiLeetcode } from "react-icons/si";
 
 const Socials = () => {
   const [tooltip, setTooltip] = useState('Click to copy mail address');
+  const email = 'shripraveen47@gmail.com';
 
   const handleMailClick = () => {
-    navigator.clipboard.writeText('smshripraveen@gmail.com').then(() => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(() => {
+        setTooltip('Copied!');
+        setTimeout(() => setTooltip('Click to copy mail address'), 2000);
+      }).catch(err => {
+        console.error('Could not copy text: ', err);
+        setTooltip('Failed to copy');
+        setTimeout(() => setTooltip('Click to copy mail address'), 2000);
+      });
+    } else {
+      // Fallback for browsers without Clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = email;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+
       setTooltip('Copied!');
       setTimeout(() => setTooltip('Click to copy mail address'), 2000);
-    });
+    }
   };
-
   const iconSize = 'w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8';
 
   return (
