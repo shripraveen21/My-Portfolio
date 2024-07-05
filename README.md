@@ -3,7 +3,7 @@
 
 ## Description
 
-This project is a portfolio starter template for Ethan, showcasing various projects and information. The portfolio is designed to be modern and responsive, utilizing various technologies to create smooth transitions and engaging user experiences.
+This project is a portfolio, showcases various projects and information. The portfolio is designed to be modern and responsive, utilizing various technologies to create smooth transitions and engaging user experiences.
 
 ## Table of Contents
 
