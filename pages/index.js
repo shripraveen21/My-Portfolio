@@ -75,7 +75,7 @@ const Home = () => {
             Passionate CSE student with expertise in  web development, machine learning and blockchain. Experienced in building scalable applications and committed to continuous learning and improvement.
           </motion.p>
           <motion.div
-            variants={fadeIn('down', 0.3)}
+            variants={fadeIn('down', 0.2)}
             initial='hidden'
             animate='show'
             exit='hidden'
